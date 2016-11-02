@@ -1,0 +1,13 @@
+* Purpose
+
+This is the dev environment from Bin Zheng, to speed up the environment setup.
+
+ * Setup
+
+ 1. Install vim, tmux.
+ 2. Setup the links.
+ ```
+ $ ./setup.sh
+ ```
+ 3. Install vim plungins using vundle.
+ Launch *vim* and run *:PluginInstall*
