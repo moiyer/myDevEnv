@@ -128,6 +128,10 @@ Bundle 'tpope/vim-fugitive'
 " Markdown syntax highlighting, matching rules and mappings
 Bundle 'godlygeek/tabular'
 Bundle 'plasticboy/vim-markdown'
+"let g:vim_markdown_folding_disabled = 1
+"let g:vim_markdown_folding_style_pythonic = 1
+let g:vim_markdown_toc_autofit = 1
+let g:vim_markdown_conceal = 0
 " Better Json support
 Bundle 'elzr/vim-json'
 let g:vim_markdown_json_frontmatter = 1
