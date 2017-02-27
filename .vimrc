@@ -102,11 +102,15 @@ set selection=exclusive
 " 通过使用: commands命令，告诉我们文件的哪一行被改变过
 set report=0
 " 在被分割的窗口间显示空白，便于阅读
-set fillchars=vert:\ ,stl:\ ,stlnc:\
+"set fillchars=vert:\ ,stl:\ ,stlnc:\
 " 高亮显示匹配的括号
 set showmatch
 " 匹配括号高亮的时间（单位是十分之一秒）
 set matchtime=1
+
+" 设置进入paste的快捷键
+" 等同于:set paste, :set nopaste, 让vim在paste的时候不去auto indent
+set pastetoggle=<F2>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "vundle
