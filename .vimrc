@@ -41,6 +41,7 @@ let g:neocomplcache_enable_at_startup = 1 " Use neocomplcache when vim starts up
 Bundle 'vim-airline/vim-airline'
 " More themes for vim-airline
 Bundle 'vim-airline/vim-airline-themes'
+let g:airline_extensions = ['branch', 'tabline'] "Specify the extention of airline to improve the performance
 
 call vundle#end()            " required
 filetype plugin indent on    " required
