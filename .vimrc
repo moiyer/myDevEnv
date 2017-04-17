@@ -33,33 +33,14 @@ Bundle 'nanotech/jellybeans.vim'
 
 " Keyword completion system by maintaining a cache of keywords in the current buffer
 Bundle 'Shougo/neocomplete.vim'
-" Use neocomplcache.
+let g:neocomplcache_enable_at_startup = 1 " Use neocomplcache when vim starts up.
 " TODO: Configure neocomplete
-let g:neocomplcache_enable_at_startup = 1
 
-
-"Bundle 'https://github.com/wincent/command-t.git'
-"Bundle 'Yggdroot/indentLine'
-"let g:indentLine_char = '┊'
-" vim-scripts repos
-"Bundle 'L9'
-"Bundle 'FuzzyFinder'
-" non github repos
-"Bundle 'Auto-Pairs'
-"Bundle 'python-imports.vim'
-"Bundle 'CaptureClipboard'
-"Bundle 'ctrlp-modified.vim'
-"Bundle 'last_edit_marker.vim'
-"Bundle 'synmark.vim'
-"Bundle 'Python-mode-klen'
-"Bundle 'Javascript-OmniCompletion-with-YUI-and-j'
-"Bundle 'jslint.vim'
-"Bundle "pangloss/vim-javascript"
-"Bundle 'Vim-Script-Updater'
-"Bundle 'ctrlp.vim'
-"Bundle 'tacahiroy/ctrlp-funky'
-"Bundle 'jsbeautify'
-"Bundle 'The-NERD-Commenter'
+" powerline requires server and client side to install powerline-fonts, which is not user friendly.
+" So I use airline. Lean & mean status/tabline for vim that's light as air.
+Bundle 'vim-airline/vim-airline'
+" More themes for vim-airline
+Bundle 'vim-airline/vim-airline-themes'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -78,7 +59,7 @@ set nocompatible  "去掉讨厌的有关vi一致性模式，避免以前版本�
 "set ruler           " 显示标尺  
 set showcmd         " 输入的命令显示出来，看的清楚些  
 set scrolloff=3     " 光标移动到buffer的顶部和底部时保持3行距离  
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}   "状态行显示的内容  
+"set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}   "状态行显示的内容  
 set laststatus=2    " 启动显示状态行(1),总是显示状态行(2)  
 "set foldenable      " 允许折叠  
 "set foldmethod=manual   " 手动折叠  
@@ -101,12 +82,6 @@ set history=1000
 "搜索逐字符高亮
 set hlsearch
 set incsearch
-" 侦测文件类型
-filetype on
-" 载入文件类型插件
-filetype plugin on
-" 为特定文件类型载入相关缩进文件
-filetype indent on
 " 保存全局变量
 set viminfo+=!
 " 带有如下符号的单词不要被换行分割
@@ -168,5 +143,4 @@ set tw=100
 " 设置进入paste的快捷键
 " 等同于:set paste, :set nopaste, 让vim在paste的时候不去auto indent
 set pastetoggle=<F2>
-
 
