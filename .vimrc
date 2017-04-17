@@ -31,6 +31,13 @@ let g:vim_json_syntax_conceal = 0
 " jellybeans color scheme
 Bundle 'nanotech/jellybeans.vim'
 
+" Keyword completion system by maintaining a cache of keywords in the current buffer
+Bundle 'Shougo/neocomplete.vim'
+" Use neocomplcache.
+" TODO: Configure neocomplete
+let g:neocomplcache_enable_at_startup = 1
+
+
 "Bundle 'https://github.com/wincent/command-t.git'
 "Bundle 'Yggdroot/indentLine'
 "let g:indentLine_char = '┊'
