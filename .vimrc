@@ -41,7 +41,7 @@ let g:neocomplcache_enable_at_startup = 1 " Use neocomplcache when vim starts up
 Bundle 'vim-airline/vim-airline'
 " More themes for vim-airline
 Bundle 'vim-airline/vim-airline-themes'
-let g:airline_extensions = ['branch', 'tabline'] "Specify the extention of airline to improve the performance
+let g:airline_extensions = ['branch'] "Specify the extention of airline to improve the performance
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -92,9 +92,9 @@ set iskeyword+=_,$,@,%,#,-
 au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn}   set filetype=mkd
 au BufRead,BufNewFile *.{go}   set filetype=go
 au BufRead,BufNewFile *.{js}   set filetype=javascript
-"rkdown to HTML  
-"nmap md :!~/.vim/markdown.pl % > %.html <CR><CR>
-"nmap fi :!firefox %.html & <CR><CR>
+au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} colorscheme desert " Another way to use
+" desert scheme based on filetype
+
 "将tab替换为空格
 nmap tt :%s/\t/    /g<CR>
 
