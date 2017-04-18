@@ -53,6 +53,7 @@ filetype plugin indent on    " required
 syntax on
 set t_Co=256
 colorscheme jellybeans
+
 "set cul "高亮光标所在行
 "set cuc
 set shortmess=atI   " 启动的时候不显示那个援助乌干达儿童的提示  
@@ -140,7 +141,7 @@ set showmatch
 " 匹配括号高亮的时间（单位是十分之一秒）
 set matchtime=1
 
-set tw=100
+set tw=100 " Set the max line width to 100 charactors
 " 设置进入paste的快捷键
 " 等同于:set paste, :set nopaste, 让vim在paste的时候不去auto indent
 set pastetoggle=<F2>

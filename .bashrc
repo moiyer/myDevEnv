@@ -26,3 +26,5 @@ export pl='/root/workspace/v2p-master/platform/'
 export sc="$pl/v2p-node-provision/src/scripts/"
 export bo="$pl/v2p-vm-mgr/src/python/vm_manager/bootstrap/"
 export to='/root/workspace/v2pc-comet-util/build-util/'
+
+export PS1='[\[\e[0;33m\]\u\[\e[0m\]@\[\e[0;32m\]\h\[\e[0m\] \[\e[0;35m\]\W\[\e[0m\]]\$ '
