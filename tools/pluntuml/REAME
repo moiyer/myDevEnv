@@ -1,0 +1,17 @@
+You should test using the command line and the -verbose flag:
+
+```
+java -jar plantuml.jar -verbose classDiagram.txt
+```
+
+The classDiagram.txt can be very simple:
+
+```
+@startuml
+A <|-- B
+@enduml
+```
+
+Reference:
+ 1. http://plantuml.com/sequence-diagram
+
