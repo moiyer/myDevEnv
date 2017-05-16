@@ -12,6 +12,8 @@ A <|-- B
 @enduml
 ```
 
+Requirements:
+ - graphviz
+
 Reference:
  1. http://plantuml.com/sequence-diagram
-
