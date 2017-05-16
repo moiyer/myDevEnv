@@ -1,0 +1,28 @@
+ * Purpose
+
+ Pandoc is an useful tool to convert markdown to html/pdf/epub. It can do more things than this.
+
+ * Install
+
+ ```
+ yum install pandoc
+ yum install texlive  #Converting to pdf needs this tool
+ ```
+
+ * Usage
+
+ Convert to html:
+ ```
+ pandoc test1.md -f markdown -t html -s -o test1.html
+ ```
+`-s`: standalone
+
+ Convert to pdf:
+ ```
+ pandoc test1.md -s -o test1.pdf
+ ```
+
+ * Reference
+
+ - http://pandoc.org/getting-started.html
+
