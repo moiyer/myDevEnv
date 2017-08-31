@@ -10,3 +10,6 @@ ln -s `pwd`/.vimrc ~/.vimrc
 
 # install vundle to manage vim plugin
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+# install tig, a text mode git ui
+#yum install tig

@@ -146,3 +146,13 @@ set tw=100 " Set the max line width to 100 charactors
 " 等同于:set paste, :set nopaste, 让vim在paste的时候不去auto indent
 set pastetoggle=<F2>
 
+" 设置git mergetool的快捷键, 默认使用vimdiff
+let mapleader=','
+let g:mapleader=','
+
+if &diff
+    map <leader>1 :diffget LOCAL<CR>
+    map <leader>2 :diffget BASE<CR>
+    map <leader>3 :diffget REMOTE<CR>
+endif
+
