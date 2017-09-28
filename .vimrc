@@ -28,6 +28,45 @@ Bundle 'elzr/vim-json'
 let g:vim_markdown_json_frontmatter = 1
 let g:vim_json_syntax_conceal = 0
 
+" Golang support
+Bundle 'fatih/vim-go'
+" Use VIM's :tags instead of :GoDef, as :GoDef has some problem in this env
+let g:go_def_mapping_enabled = 0
+Bundle 'ctrlpvim/ctrlp.vim'
+
+" Tagbar to for better file struct view
+Plugin 'majutsushi/tagbar'
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
+
+" Dir tree view
+Plugin 'scrooloose/nerdtree'
+
 " jellybeans color scheme
 Bundle 'nanotech/jellybeans.vim'
 
@@ -146,3 +185,12 @@ set tw=100 " Set the max line width to 100 charactors
 " 等同于:set paste, :set nopaste, 让vim在paste的时候不去auto indent
 set pastetoggle=<F2>
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 快捷键相关  
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Tagbar
+nmap <F8> :TagbarToggle<CR>
+" Nerdtree
+map <C-x> :NERDTreeToggle<CR>

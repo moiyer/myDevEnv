@@ -11,3 +11,16 @@ This is the dev environment from Bin Zheng, to speed up the environment setup.
  ```
  3. Install vim plungins using vundle.
  Launch *vim* and run *:PluginInstall*
+
+ 4. For Golang dev, you need to install go plugin binaries:
+ ```
+ $ export GOPATH=<your_dev_project_root>
+ $ export PATH=$PATH:$GOPATH/bin
+ Launch *vim* and run *:GoInstallBinarie*, it will install `gocode`, `godef`, `goimports` into
+ $GOPATH/bin/
+ ```
+
+ 5. For Golang dev, you can generage tags file using gotags
+ ```
+ $ gotags -L go.files -f tags 
+ ```
