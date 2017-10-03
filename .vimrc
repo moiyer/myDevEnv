@@ -32,7 +32,7 @@ let g:vim_json_syntax_conceal = 0
 Bundle 'fatih/vim-go'
 " Use VIM's :tags instead of :GoDef, as :GoDef has some problem in this env
 let g:go_def_mapping_enabled = 0
-Bundle 'ctrlpvim/ctrlp.vim'
+
 
 " Tagbar to for better file struct view
 Plugin 'majutsushi/tagbar'
@@ -64,8 +64,25 @@ let g:tagbar_type_go = {
     \ 'ctagsargs' : '-sort -silent'
 \ }
 
+" Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
+Bundle 'ctrlpvim/ctrlp.vim'
+" <C-p> to enter ctrlp mode
+" <C-j> and <C-k> to select upper/lower one
+" <C-x> open the selected file in horizon splitted pane
+" <C-v> open the selected file in vertical splitted pane
+" <C-t> openthe selected file in a new tab
+
 " Dir tree view
 Plugin 'scrooloose/nerdtree'
+
+" Better way to comment/uncomment
+Plugin 'scrooloose/nerdcommenter'
+let g:NERDSpaceDelims=1     " Add a space after comment
+" <leader>cc    Add comment
+" <leader>cA    Add comment in the end of this line
+" <leader>cu    Uncomment
+" <leader>cm    Add comment for multi lines
+" <leader>c<space>  Uncomment inteleggencily
 
 " jellybeans color scheme
 Bundle 'nanotech/jellybeans.vim'
@@ -188,6 +205,10 @@ set pastetoggle=<F2>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 快捷键相关  
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Map <leader> to ,
+" You can use ':let mapleader' to get current <leader>
+let mapleader=','
+let g:mapleader=','
 
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
@@ -196,8 +217,6 @@ nmap <F8> :TagbarToggle<CR>
 map <C-x> :NERDTreeToggle<CR>
 
 " 设置git mergetool的快捷键, 默认使用vimdiff
-let mapleader=','
-let g:mapleader=','
 if &diff
     map <leader>1 :diffget LOCAL<CR>
     map <leader>2 :diffget BASE<CR>
