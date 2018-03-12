@@ -18,7 +18,7 @@ source /root/.git-completion.bash
 export http_proxy=http://64.102.255.40:8080/
 export https_proxy=http://64.102.255.40:8080/
 #export ftp_proxy=http://64.102.255.40:8080/
-export no_proxy=.cisco.com
+export no_proxy=.cisco.com,127.0.0.1
 
 export au='/root/workspace/v2p-master/automation/'
 export se='/root/workspace/v2p-master/services/'

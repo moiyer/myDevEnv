@@ -23,6 +23,9 @@ Bundle 'plasticboy/vim-markdown'
 let g:vim_markdown_toc_autofit = 1
 let g:vim_markdown_conceal = 0
 
+" Javascript 
+Plugin 'pangloss/vim-javascript'
+
 " Better Json support
 Bundle 'elzr/vim-json'
 let g:vim_markdown_json_frontmatter = 1
