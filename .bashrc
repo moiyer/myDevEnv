@@ -15,8 +15,8 @@ fi
 
 source /root/.git-completion.bash
 
-#export http_proxy=http://64.102.255.40:8080/
-#export https_proxy=http://64.102.255.40:8080/
+export http_proxy=http://64.102.255.40:8080/
+export https_proxy=http://64.102.255.40:8080/
 #export ftp_proxy=http://64.102.255.40:8080/
 export no_proxy=.cisco.com
 

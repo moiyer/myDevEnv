@@ -28,6 +28,9 @@ Bundle 'elzr/vim-json'
 let g:vim_markdown_json_frontmatter = 1
 let g:vim_json_syntax_conceal = 0
 
+" Javascript support
+Bundle 'othree/yajs'
+
 " Golang support
 Bundle 'fatih/vim-go'
 " Use VIM's :tags instead of :GoDef, as :GoDef has some problem in this env
@@ -215,6 +218,24 @@ nmap <F8> :TagbarToggle<CR>
 
 " Nerdtree
 map <C-x> :NERDTreeToggle<CR>
+
+" cscope
+"   's'   symbol: find all references to the token under cursor
+"   'g'   global: find global definition(s) of the token under cursor
+"   'c'   calls:  find all calls to the function name under cursor
+"   't'   text:   find all instances of the text under cursor
+"   'e'   egrep:  egrep search for the word under cursor
+"   'f'   file:   open the filename under cursor
+"   'i'   includes: find files that include the filename under cursor
+"   'd'   called: find functions that function under cursor calls
+nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>  
+nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>  
+nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>  
+nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>  
+nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>  
+nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
 " 设置git mergetool的快捷键, 默认使用vimdiff
 if &diff

@@ -23,4 +23,5 @@ This is the dev environment from Bin Zheng, to speed up the environment setup.
  5. For Golang dev, you can generage tags file using gotags
  ```
  $ gotags -L go.files -f tags 
+ $ cscope -kbq -i go.files
  ```
