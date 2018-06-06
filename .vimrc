@@ -104,6 +104,8 @@ Bundle 'vim-airline/vim-airline'
 " More themes for vim-airline
 Bundle 'vim-airline/vim-airline-themes'
 let g:airline_extensions = ['branch'] "Specify the extention of airline to improve the performance
+let g:airline_theme="molokai"
+let g:airline_powerline_fonts = 1
 
 call vundle#end()            " required
 filetype plugin indent on    " required
