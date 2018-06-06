@@ -1,8 +1,8 @@
-* Purpose
+ * Purpose
 
 This is the dev environment from Bin Zheng, to speed up the environment setup.
 
- * Setup
+ * Setup for Linux
 
  1. Install vim, tmux.
  2. Setup the links.
@@ -25,3 +25,61 @@ This is the dev environment from Bin Zheng, to speed up the environment setup.
  $ gotags -L go.files -f tags 
  $ cscope -kbq -i go.files
  ```
+
+ * Setup for Mac
+
+ 1. Install below packages:
+
+    - Homebrew: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    - iTerm2: `brew install iTerm2`
+    - vim: brew install vim
+    - git: brew install git
+    - zsh: sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+ 2. Configure zsh:
+    1. Replace bash to zsh: `chsh -s /bin/zsh`
+    2. Install highlighting: brew install zsh-syntax-highlighting
+    3. Install autocomplete: git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+    4. Install git-flow-complete: git clone https://github.com/bobthecow/git-flow-completion ~/.oh-my-zsh/custom/plugins/git-flow-completion
+    3. Configure "~/.zshrc": 
+        ```
+        ZSH_THEME="agnoster"
+        DEFAULT_USER="bijun"
+        plugins=(
+          git
+          zsh-syntax-highlighting
+          zsh-autosuggestions
+          git-flow-completion
+        )
+
+        alias rm='rm -i'
+        alias cp='cp -i'
+        alias mv='mv -i'
+        alias gs='git status -uno'
+        alias gb='git branch'
+
+        source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+        ```
+
+ 3. Configure Meslo ttf:
+    1. Download the ttf: https://github.com/powerline/fonts/blob/master/Meslo%20Slashed/Meslo%20LG%20M%20Regular%20for%20Powerline.ttf
+    2. Install the ttf
+    3. Configure iTerm2 to use the ttf: Profiles -> Text -> Font -> Chanage Font, then select "Meslo LG M Regular for Powerline"
+
+ 4. Install myDev: ./setup.sh
+
+ 5. Install vim plungins using vundle.
+    Launch *vim* and run *:PluginInstall*
+
+* Appendix
+
+# iTerm2 hotkeys
+
+| Command  | Description  |
+| - | - |
+| C+t | new tab |
+| C+w | close tab |
+| C+Left/Right | switch tab |
+| C+d | split vertical |
+| C+S+d | split horizon |
+
