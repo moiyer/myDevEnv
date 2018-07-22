@@ -84,7 +84,7 @@ This is the dev environment from Bin Zheng, to speed up the environment setup.
         ```
  7. Configure zsh prompt to only prompt the current folder name, not the whole path. You can skip
  this step if you don't need.
-    1. Open the , and change one function like below.
+    1. Open the "~/.oh-my-zsh/themes/agnoster.zsh-theme", and change one function like below.
         ```
         prompt_dir() {
         #   prompt_segment blue black '%~'
