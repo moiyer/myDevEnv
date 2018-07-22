@@ -106,6 +106,8 @@ Bundle 'vim-airline/vim-airline-themes'
 let g:airline_extensions = ['branch'] "Specify the extention of airline to improve the performance
 let g:airline_theme="molokai"
 let g:airline_powerline_fonts = 1
+" Make vim and tmux use same scheme
+Bundle 'edkolev/tmuxline.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required

@@ -71,6 +71,18 @@ This is the dev environment from Bin Zheng, to speed up the environment setup.
  5. Install vim plungins using vundle.
     Launch *vim* and run *:PluginInstall*
 
+ 6. Configure tmux status line to use vim airline theme. I have already generated a theme file, so
+ you may not need this step.
+    1. Generate the theme file for tmux in vim using the vim plugin edkolev/tmuxline.vim https://github.com/edkolev/tmuxline.vim
+        1. Open vim in a tmux window
+        2. Run ":Tmuxline lightline_insert" in vim
+        3. Run ":TmuxlineSnapshot ~/myDevEnv/.airline_tmux_generated.theme" in vim to generate theme
+        file
+    2. Source the theme file in tmux.conf
+        ```
+        if-shell "test -f ~/myDevEnv/.airline_tmux_generated.theme" "source ~/myDevEnv/.airline_tmux_generated.theme"
+        ```
+
 * Appendix
 
 # iTerm2 hotkeys
