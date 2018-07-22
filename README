@@ -82,6 +82,15 @@ This is the dev environment from Bin Zheng, to speed up the environment setup.
         ```
         if-shell "test -f ~/myDevEnv/.airline_tmux_generated.theme" "source ~/myDevEnv/.airline_tmux_generated.theme"
         ```
+ 7. Configure zsh prompt to only prompt the current folder name, not the whole path. You can skip
+ this step if you don't need.
+    1. Open the , and change one function like below.
+        ```
+        prompt_dir() {
+        #   prompt_segment blue black '%~'
+            prompt_segment blue black '%1d'
+        }
+        ```
 
 * Appendix
 
