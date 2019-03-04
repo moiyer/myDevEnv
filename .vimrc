@@ -35,9 +35,9 @@ let g:vim_json_syntax_conceal = 0
 Bundle 'othree/yajs'
 
 " Golang support
-Bundle 'fatih/vim-go'
+"Bundle 'fatih/vim-go'
 " Use VIM's :tags instead of :GoDef, as :GoDef has some problem in this env
-let g:go_def_mapping_enabled = 0
+"let g:go_def_mapping_enabled = 0
 
 
 " Tagbar to for better file struct view
@@ -73,6 +73,8 @@ let g:tagbar_type_go = {
 " Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
 Bundle 'ctrlpvim/ctrlp.vim'
 " <C-p> to enter ctrlp mode
+" <C-f/b> switch mode (recent opened files)
+" <C-d> search filename or path (default is path)
 " <C-j> and <C-k> to select upper/lower one
 " <C-x> open the selected file in horizon splitted pane
 " <C-v> open the selected file in vertical splitted pane
@@ -109,7 +111,22 @@ let g:airline_powerline_fonts = 1
 " Make vim and tmux use same scheme
 Bundle 'edkolev/tmuxline.vim'
 
+" Add maktaba and codefmt to the runtimepath.
+" (The latter must be installed before it can be used.)
+Plugin 'google/vim-maktaba'
+Plugin 'google/vim-codefmt'
+" Also add Glaive, which is used to configure codefmt's maktaba flags. See
+" `:help :Glaive` for usage.
+Plugin 'google/vim-glaive'
+
+" take notes
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-notes'
+:let g:notes_directories = ['~/notes']
+
 call vundle#end()            " required
+call glaive#Install()
+Glaive codefmt plugin[mappings]
 filetype plugin indent on    " required
 
 
@@ -138,7 +155,7 @@ set cindent
 set tabstop=4
 " 统一缩进为4
 set softtabstop=4
-set shiftwidth=4
+set shiftwidth=2
 " 不要用空格代替制表符
 set expandtab
 " 在行和段开始处使用制表符
@@ -153,13 +170,13 @@ set incsearch
 " 保存全局变量
 set viminfo+=!
 " 带有如下符号的单词不要被换行分割
-set iskeyword+=_,$,@,%,#,-
+set iskeyword+=_,$,@,%,#
 
 "文件类型配置
 au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn}   set filetype=mkd
 au BufRead,BufNewFile *.{go}   set filetype=go
 au BufRead,BufNewFile *.{js}   set filetype=javascript
-au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} colorscheme desert " Another way to use
+"au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} colorscheme desert " Another way to use
 " desert scheme based on filetype
 
 "将tab替换为空格
@@ -250,3 +267,79 @@ if &diff
     map <leader>2 :diffget BASE<CR>
     map <leader>3 :diffget REMOTE<CR>
 endif
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Neocomplete setting 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"Note: This option must be set in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1 
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+
+" Define dictionary.
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+        \ }
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" Close popup by <Space>.
+"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+
+" AutoComplPop like behavior.
+let g:neocomplete#enable_auto_select = 1
+
+" Shell like behavior(not recommended).
+"set completeopt+=longest
+"let g:neocomplete#enable_auto_select = 1
+"let g:neocomplete#disable_auto_complete = 1
+"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+" For perlomni.vim setting.
+" https://github.com/c9s/perlomni.vim
+"let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
