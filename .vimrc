@@ -24,7 +24,7 @@ let g:vim_markdown_toc_autofit = 1
 let g:vim_markdown_conceal = 0
 
 " Javascript 
-Plugin 'pangloss/vim-javascript'
+"Plugin 'pangloss/vim-javascript'
 
 " Better Json support
 Bundle 'elzr/vim-json'
@@ -32,13 +32,12 @@ let g:vim_markdown_json_frontmatter = 1
 let g:vim_json_syntax_conceal = 0
 
 " Javascript support
-Bundle 'othree/yajs'
+"Bundle 'othree/yajs'
 
 " Golang support
 Bundle 'fatih/vim-go'
 " Use VIM's :tags instead of :GoDef, as :GoDef has some problem in this env
 let g:go_def_mapping_enabled = 0
-
 
 " Tagbar to for better file struct view
 Plugin 'majutsushi/tagbar'
@@ -156,10 +155,10 @@ set viminfo+=!
 set iskeyword+=_,$,@,%,#,-
 
 "文件类型配置
-au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn}   set filetype=mkd
-au BufRead,BufNewFile *.{go}   set filetype=go
-au BufRead,BufNewFile *.{js}   set filetype=javascript
-au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} colorscheme desert " Another way to use
+"au BufRead,BufNewFile *.{go}   set filetype=go
+"au BufRead,BufNewFile *.{js}   set filetype=javascript
+"au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn}   set filetype=mkd
+"au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} colorscheme desert " Another way to use
 " desert scheme based on filetype
 
 "将tab替换为空格
