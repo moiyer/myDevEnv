@@ -14,7 +14,7 @@ This is the dev environment from Bin Zheng, to speed up the environment setup.
 
  4. For Golang dev, you need to install go plugin binaries:
  ```
- $ export GOPATH=<your_dev_project_root>
+ $ export GOPATH=<your_dev_go_root>
  $ export PATH=$PATH:$GOPATH/bin
  Launch *vim* and run *:GoInstallBinarie*, it will install `gocode`, `godef`, `goimports` into
  $GOPATH/bin/

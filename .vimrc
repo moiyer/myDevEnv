@@ -35,9 +35,9 @@ let g:vim_json_syntax_conceal = 0
 "Bundle 'othree/yajs'
 
 " Golang support
-"Bundle 'fatih/vim-go'
+Bundle 'fatih/vim-go'
 " Use VIM's :tags instead of :GoDef, as :GoDef has some problem in this env
-"let g:go_def_mapping_enabled = 0
+let g:go_def_mapping_enabled = 0
 
 " Tagbar to for better file struct view
 Plugin 'majutsushi/tagbar'
@@ -119,9 +119,9 @@ Plugin 'google/vim-codefmt'
 Plugin 'google/vim-glaive'
 
 " take notes
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-notes'
-:let g:notes_directories = ['~/notes']
+"Plugin 'xolox/vim-misc'
+"Plugin 'xolox/vim-notes'
+":let g:notes_directories = ['~/notes']
 
 call vundle#end()            " required
 call glaive#Install()
