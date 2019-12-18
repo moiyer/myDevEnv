@@ -22,6 +22,21 @@ Bundle 'plasticboy/vim-markdown'
 "let g:vim_markdown_folding_style_pythonic = 1
 let g:vim_markdown_toc_autofit = 1
 let g:vim_markdown_conceal = 0
+" zr: reduces fold level throughout the buffer
+" zR: opens all folds
+" zm: increases fold level throughout the buffer
+" zM: folds everything all the way
+" za: open a fold your cursor is on
+" zA: open a fold your cursor is on recursively
+" zc: close a fold your cursor is on
+" zC: close a fold your cursor is on recursively
+
+" Markdown preview in chrome
+Bundle 'JamshedVesuna/vim-markdown-preview'
+let vim_markdown_preview_github=1
+let vim_markdown_preview_hotkey='<C-m>'
+let vim_markdown_preview_browser='Google Chrome'
+"let vim_markdown_preview_toggle=2
 
 " Javascript 
 "Plugin 'pangloss/vim-javascript'
@@ -122,6 +137,24 @@ Plugin 'google/vim-glaive'
 "Plugin 'xolox/vim-misc'
 "Plugin 'xolox/vim-notes'
 ":let g:notes_directories = ['~/notes']
+
+" Mac ONLY, integrated with Dash
+Plugin 'rizzatti/dash.vim'
+
+" Make bookmarks
+Plugin 'MattesGroeger/vim-bookmarks'
+" Save bookmarks per working dir, the folder you opened vim from
+let g:bookmark_save_per_working_dir = 1
+" mm Add/remove bookmark at current line
+" mi Add/edit/remove annotation at current line
+" mn Jump to next bookmark in buffer
+" mp Jump to previous bookmark in buffer
+" ma Show all bookmarks (toggle)
+" mc Clear bookmarks in current buffer only
+" mx Clear bookmarks in all buffers
+" [count]mkk Move up bookmark at current line
+" [count]mjj Move down bookmark at current line
+" [count]mg Move bookmark at current line to another line
 
 call vundle#end()            " required
 call glaive#Install()
@@ -240,7 +273,7 @@ let g:mapleader=','
 nmap <F8> :TagbarToggle<CR>
 
 " Nerdtree
-map <C-x> :NERDTreeToggle<CR>
+nmap <C-x> :NERDTreeToggle<CR>
 
 " cscope
 "   's'   symbol: find all references to the token under cursor
@@ -278,6 +311,8 @@ if &diff
     map <leader>3 :diffget REMOTE<CR>
 endif
 
+" Dash
+nmap <C-d> :Dash<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Neocomplete setting 
